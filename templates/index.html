@@ -30,32 +30,36 @@
     <div class="container">
         {% for coach in coaches %}
             <div class="">
-                <h4>{{ coach.name }}</h5>
-                <h5>Collection</h5>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Rarity</th>
-                        <th>Card name</th>
-                        <th>Race</th>
-                        <th>Type</th>
-                        <th>Subtype</th>
-                        <th>Quantity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    {% for card in coach.collection_with_count() %}
-                      <tr {{ rarity_class(card["Rarity"]) }}>
-                        <td><img class="rarity" src="static/images/{{ card['Rarity'] }}.jpg" alt="{{ card['Rarity'] }}" title="{{ card['Rarity'] }}" width="23" height="32" /></td>
-                        <td>{{card["Card Name"]}}</td>
-                        <td>{{card["Race"]}}</td>
-                        <td>{{card["Type"]}}</td>
-                        <td>{{card["Subtype"]}}</td>
-                        <td>{{card["Quantity"]}}</td>
-                      </tr>
-                     {% endfor %}
-                    </tbody>
-                </table>
+                <a class="" data-toggle="collapse" href="#collection{{loop.index}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <h4>{{ coach.name }}</h5>
+                </a>
+                <div class="collapse" id="collection{{loop.index}}">
+                    <h5>Collection</h5>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Rarity</th>
+                            <th>Card name</th>
+                            <th>Race</th>
+                            <th>Type</th>
+                            <th>Subtype</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for card in coach.collection_with_count() %}
+                        <tr {{ rarity_class(card["Rarity"]) }}>
+                            <td><img class="rarity" src="static/images/{{ card['Rarity'] }}.jpg" alt="{{ card['Rarity'] }}" title="{{ card['Rarity'] }}" width="23" height="32" /></td>
+                            <td>{{card["Card Name"]}}</td>
+                            <td>{{card["Race"]}}</td>
+                            <td>{{card["Type"]}}</td>
+                            <td>{{card["Subtype"]}}</td>
+                            <td>{{card["Quantity"]}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         {% endfor %}
     </div><!-- /.container -->
