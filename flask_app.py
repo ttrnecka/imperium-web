@@ -1,8 +1,8 @@
 
 # A very simple Flask Hello World app for you to get started with...
 import sys
-#sys.path.insert(0, '/home/trnecka/imperium-bot')
-sys.path.insert(0, '../imperium-bot')
+sys.path.insert(0, '/home/trnecka/imperium-bot')
+#sys.path.insert(0, '../imperium-bot')
 
 from coach import Coach
 
